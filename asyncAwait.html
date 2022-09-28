@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //promise
+
+    //  console.log('person1:shows ticket')
+    //  console.log('person2:shows ticket')
+    //  const promisewifebringingticket=new Promise((resolve,reject)=>{
+    //     setTimeout(()=>{
+    //      resolve('ticket')
+    //     },3000)
+    //  })
+    //  const getPopcorn=promisewifebringingticket.then((t)=>{
+    //     console.log('wife:i have the tickets')
+    //    console.log('husband:we should go in')
+    //    console.log('wife:no i am hungry')
+    //    return new Promise((resolve,reject)=>resolve(`${t} popcorn`));
+    //  })
+     
+    //  const getButter=getPopcorn.then((t)=>{
+    //     console.log('husband:i got some popcorn')
+    //    console.log('husband:we should go in')
+    //    console.log('wife:no i need butter on my popcorn')
+    //    return new Promise((resolve,reject)=>resolve(`${t} butter`));
+    //  })
+    //  getButter.then((t)=>console.log(t))
+
+     
+    // console.log('person4:shows ticket')
+    // console.log('person5:shows ticket')
+
+
+
+    //async/await with promise
+
+    // console.log('person1:shows ticket')
+    // console.log('person2:shows ticket')
+    // const preMovie=async()=>{
+    //     const promisewifebringingticket=new Promise((resolve,reject)=>{
+    //     setTimeout(()=>{
+    //      resolve('ticket')
+    //     },3000)
+    //  })
+
+    //     const getPopcorn=new Promise((resolve,reject)=>resolve(`popcorn`))
+
+    //     const getButter=new Promise((resolve,reject)=>resolve(`butter`))
+        
+    //     const getColdDrinks=new Promise((resolve,reject)=>resolve('coldrinks'))
+
+    //     let ticket=await promisewifebringingticket;
+
+    //    console.log(`wife:i have the ${ticket}`)
+    //    console.log('husband:we should go in')
+    //    console.log('wife:no i am hungry')
+       
+    //    let popcorn=await getPopcorn; 
+
+    //    console.log(`husband:i got some ${popcorn}`)
+    //    console.log('husband:we should go in')
+    //    console.log('wife:no i need butter on my popcorn')
+
+    //    let butter=await getButter;
+
+    //    console.log(`husband:i got some ${butter} on popcorn`)
+    //    console.log(`husband:anything else darling`)
+    //    console.log(`wife:lets go we are getting late`)
+    //    console.log(`husband:thank you for the reminder`)
+    //    console.log(`wife:wait wait i want some coldrinks as well`)
+    //    console.log(`husband:ugghh okay`)
+
+    //    let coldrink=await getColdDrinks;
+
+    //    console.log(`husband:here is ${coldrink}`)
+    //    console.log('wife:thankyou sweetheart')
+    //    console.log('husband:lets go inside fast')
+
+    //    return ticket;
+    // }
+      
+      
+    // preMovie().then((m)=>console.log(`person3:shows ${m}`));
+
+    // console.log('person4:shows ticket')
+    // console.log('person5:shows ticket')
+
+
+
+    //async/await with promise.all
+
+    console.log('person1:shows ticket')
+    console.log('person2:shows ticket')
+    const preMovie=async()=>{
+        const promisewifebringingticket=new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+         resolve('ticket')
+        },3000)
+     })
+
+        const getPopcorn=new Promise((resolve,reject)=>resolve(`popcorn`))
+
+        const getButter=new Promise((resolve,reject)=>resolve(`butter`))
+        
+        const getColdDrinks=new Promise((resolve,reject)=>resolve('coldrinks'))
+        
+        let ticket=await promisewifebringingticket;
+
+        let [popcorn,butter,coldrink]=await Promise.all([getPopcorn,getButter,getColdDrinks])
+        console.log((`${popcorn},${butter},${coldrink}`))
+        return ticket;
+    }
+      
+      
+    preMovie().then((m)=>console.log(`person3:shows ${m}`));
+
+    console.log('person4:shows ticket')
+    console.log('person5:shows ticket')
+
+    </script>
+</body>
+</html>
