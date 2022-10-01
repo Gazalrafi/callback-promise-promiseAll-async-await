@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//         const promise1=Promise.resolve('hello world');
+//         const promise2=10;
+//         const promise4= function lastuseractivity(){
+//         return new Promise((resolve,reject)=>{ 
+//         setTimeout(()=>{
+//         const user={
+//         username:'gazal',
+//         lastactivitytime:'23rd of september'
+// }
+// },1000)
+// })
+       
+//         }
+//     const promise3=new Promise((resolve,reject)= setTimeout(resolve,2000,'good night'));
+//     Promise.all([promise1,promise2,promise3,promise4]).then(((values)=>
+//     console.log(values)))
+   
+
+function createPost(){
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+        let error=true;
+        if(!error){
+            resolve('no error'); //not error
+        }
+        else{
+           reject('error:something went wrong')
+        }
+    },2000);
+    })
+}
+ const user={
+    username:'gazal',
+    lastactivitytime:'13th ofseptember'
+ }
+ function updatelastactivitytime(){
+return new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+        user.lastactivitytime=new Date();
+        resolve(data)
+    },1000)
+})
+ }
+ function userupdatesapost(){
+    Promise.all([createPost,updatelastactivitytime])
+    .then((values)=>console.log(values))
+    .catch(error=>console.log(error))
+ }
+ 
+    </script>
+</body>
+</html>
